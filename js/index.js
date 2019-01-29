@@ -4,16 +4,19 @@
 
 //1. 'mouseover' on Fun Bus logo
 const fbLogo = document.querySelector('h1')
-fbLogo.addEventListener('mouseover', element => console.log("the logo was moused over"))
+fbLogo.addEventListener('mouseover', element => {element.target.style.color = 'red'})
 
-//2. 'keydown' on body
-const body = document.querySelector('body')
-body.addEventListener('keydown', element => console.log("the body was keyed into"))
+//2. 'keydown' on first Nav item
+const firstNavItem = document.querySelector('.nav-link')
+firstNavItem.addEventListener('keydown', element => {
+    firstNavItem.style.fontSize = '40px'
+})
 
-//3.'wheel' on .text-content
+//3.'wheel' on first .text-content
 const firstTextContent = document.querySelector('.text-content')
-console.log(firstTextContent)
-firstTextContent.addEventListener('wheel', element => console.log('first text content was wheeled on'))
+firstTextContent.addEventListener('wheel', element => {
+    firstTextContent.style.border = "3px dashed black"
+})
 
 //4.'drag' on any img
 const imgListener = document.querySelectorAll('img')
