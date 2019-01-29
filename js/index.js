@@ -18,7 +18,7 @@ firstTextContent.addEventListener('wheel', element => {
 
 //4.'drag' on any img
 const imgListener = document.querySelectorAll('img')
-imgListener.forEach(function() {
+imgListener.forEach(event => {
     addEventListener('drag', event => {
         event.target.remove()
     })
@@ -26,7 +26,7 @@ imgListener.forEach(function() {
 
 //5. 'load' on all images
 imgListener.forEach(function() {
-    addEventListener('load', function(){
+    addEventListener('load', event => {
         document.querySelector('body').style.backgroundColor = 'yellow'
     })
 })
@@ -39,16 +39,18 @@ window.addEventListener('resize', element => {
 
 
 //7. 'scroll' listener added to window
-window.addEventListener('scroll', function() {
-    fbLogo.textContent = "Scrolly Bus"
+window.addEventListener('scroll', element => {
+    fbLogo.textContent = "Scrolly Bus";
+    fbLogo.style.textDecoration = 'underline'
+    fbLogo.style.color = 'blue'
 })
 
 //8. 'select' text within input
 const inputObj = document.querySelector('input')
-inputObj.addEventListener('select', element => element.target.style.backgroundColor = 'red')
+inputObj.addEventListener('select', element => element.target.style.backgroundColor = 'orange')
 
 //9. 'focus' on input
-inputObj.addEventListener('focus', element => element.target.style.color = 'white')
+inputObj.addEventListener('focus', element => element.target.style.color = 'blue')
 
 //10. 'dblclick' on first button
 const firstDestinationButton = document.querySelector('.btn')
@@ -69,3 +71,8 @@ destinationPTag.addEventListener('click', event => {
     destinationPTag.style.border = "1px solid black";
     event.stopPropagation();
 })
+
+
+//preventDefault() example
+const secondNavItem = document.querySelectorAll(".nav-link")[1]
+secondNavItem.addEventListener('click', event => event.preventDefault())
