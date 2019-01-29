@@ -1,6 +1,4 @@
-// Your code goes here
-
-//10 unique event listeners
+//10 unique event listeners and DOM manipulations
 
 //1. 'mouseover' on Fun Bus logo
 const fbLogo = document.querySelector('h1')
@@ -57,4 +55,17 @@ const firstDestinationButton = document.querySelector('.btn')
 firstDestinationButton.addEventListener('dblclick', element => {
     element.target.textContent = 'Have a Nice Trip!'
     element.target.style.backgroundColor = 'blue'
+})
+
+
+
+
+//'click' listener added to a parent and child element, propogation stopped on child listener
+const destinationSection = document.querySelector('.content-destination')
+destinationSection.addEventListener('click', event => destinationSection.style.border = "3px dashed black")
+
+const destinationPTag = document.querySelector('.content-destination p')
+destinationPTag.addEventListener('click', event => {
+    destinationPTag.style.border = "1px solid black";
+    event.stopPropagation();
 })
