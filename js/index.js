@@ -21,30 +21,40 @@ firstTextContent.addEventListener('wheel', element => {
 //4.'drag' on any img
 const imgListener = document.querySelectorAll('img')
 imgListener.forEach(function() {
-    addEventListener('drag', event => console.log('This image is being dragged'))
+    addEventListener('drag', event => {
+        event.target.remove()
+    })
 })
 
 //5. 'load' on all images
 imgListener.forEach(function() {
-    addEventListener('load', event => console.log('img has loaded'))
+    addEventListener('load', function(){
+        document.querySelector('body').style.backgroundColor = 'yellow'
+    })
 })
 
-//6. window resize
-window.addEventListener('resize', element => console.log('window has been resized'))
 
-//7. 'scroll' listener on destination paragraphs
-const destinationParagraphs = document.querySelectorAll('.destination p')
-destinationParagraphs.forEach(function () {
-    addEventListener('scroll', event => console.log('destination paragraphs were scrolled on'))
+//6. window resize
+window.addEventListener('resize', element => {
+    document.querySelector('img').src = 'https://pacogampp.files.wordpress.com/2013/06/cat-on-bus.jpg'
+})
+
+
+//7. 'scroll' listener added to window
+window.addEventListener('scroll', function() {
+    fbLogo.textContent = "Scrolly Bus"
 })
 
 //8. 'select' text within input
 const inputObj = document.querySelector('input')
-inputObj.addEventListener('select', element => console.log('The text within the input was selected'))
+inputObj.addEventListener('select', element => element.target.style.backgroundColor = 'red')
 
 //9. 'focus' on input
-inputObj.addEventListener('focus', element => console.log(`${element.target} was focused on`))
+inputObj.addEventListener('focus', element => element.target.style.color = 'white')
 
 //10. 'dblclick' on first button
 const firstDestinationButton = document.querySelector('.btn')
-firstDestinationButton.addEventListener('dblclick', element => console.log('first button has been double clicked'))
+firstDestinationButton.addEventListener('dblclick', element => {
+    element.target.textContent = 'Have a Nice Trip!'
+    element.target.style.backgroundColor = 'blue'
+})
