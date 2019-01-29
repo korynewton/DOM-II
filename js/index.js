@@ -29,12 +29,19 @@ imgListener.forEach(function() {
 //6. window resize
 window.addEventListener('resize', element => console.log('window has been resized'))
 
-//7. scroll listener on destination paragraphs
+//7. 'scroll' listener on destination paragraphs
 const destinationParagraphs = document.querySelectorAll('.destination p')
 destinationParagraphs.forEach(function () {
     addEventListener('scroll', event => console.log('destination paragraphs were scrolled on'))
 })
 
-//8. select text within input
+//8. 'select' text within input
 const inputObj = document.querySelector('input')
 inputObj.addEventListener('select', element => console.log('The text within the input was selected'))
+
+//9. 'focus' on input
+inputObj.addEventListener('focus', element => console.log(`${element.target} was focused on`))
+
+//10. 'dblclick' on first button
+const firstDestinationButton = document.querySelector('.btn')
+firstDestinationButton.addEventListener('dblclick', element => console.log('first button has been double clicked'))
